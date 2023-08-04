@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+    <div class="container">
+        <h2>Eliminar Comentario</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <p>¿Está seguro que desea eliminar el comentario?</p>
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
+    </div>
+{% endblock contenido %}

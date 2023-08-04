@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block contenido %}
+    <h3>Editar Posteo</h3>
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+
+    </form>
+{% endblock contenido %}
+    

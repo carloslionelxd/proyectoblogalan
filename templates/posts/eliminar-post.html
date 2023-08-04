@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block contenido %}
+    <form method="post">{% csrf_token %}
+        <p>¿Está seguro que desea eliminar la publicación?</p>
+        <button type="submit" class = "btn btn-danger">Eliminar</button>
+    </form>
+{% endblock contenido %}
+    

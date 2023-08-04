@@ -1,0 +1,27 @@
+h1 {
+    color:darkblue;
+}
+
+.botonera1 {
+    display: flex;
+    justify-content: center;
+}
+
+.imagen-proporcional {
+    max-width: 300px;
+            height: auto; 
+            display: block;
+            margin: 0 auto;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+} 
+
+body {
+    /* Establece un margen inferior que coincida con la altura del footer */
+    margin-bottom: 80px; /* Ajusta este valor según la altura de tu footer */
+}

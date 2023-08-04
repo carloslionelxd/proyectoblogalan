@@ -1,0 +1,14 @@
+asgiref          ==      3.7.2  
+distlib          ==      0.3.6  
+Django           ==      4.2.3  
+filelock         ==      3.12.2 
+mysql-connector-python == 8.0.32
+mysqlclient      ==      2.2.0
+Pillow           ==      10.0.0
+pip              ==      22.3.1
+platformdirs     ==      3.6.0
+protobuf         ==      3.20.3
+setuptools       ==      65.5.0
+sqlparse         ==      0.4.4
+tzdata           ==      2023.3
+virtualenv       ==      20.23.1

@@ -1,0 +1,33 @@
+<!-- login.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Ingresar{% endblock title %}
+
+{% block contenido %}
+<center>
+    <form method="POST" style="margin-top: 300px;">
+        <h1 class="h1">Iniciar sesión</h1>        
+        <br>
+        <div class="messages">
+            {% for message in messages %}
+            <table{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</table>
+            {% endfor %}          
+        </div>
+        <br>
+        {% csrf_token %}
+        <div class="container">
+            <table>{{form}}</table>
+            <br>
+            <button type="submit" class="btn btn-success btn-lg px-3">Iniciar sesión</button>
+            <a type="submit" class="btn btn-success btn-lg px-3" href="{% url 'usuarios:registrarse' %}" >Registrate</a>
+            <br>
+            <a href="{% url 'usuarios:password_reset' %}">Restablecer contraseña</a>
+            <br>
+        </div>
+    </form>
+</center>
+<br>
+{% endblock contenido %}
+
+

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+    <h2>Editar Mi Perfil</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <label for="{{ editar_form.username.id_for_label }}">Nombre de usuario:</label>
+        {{ editar_form.username }}
+        <br>
+        
+        <label for="{{ editar_form.first_name.id_for_label }}">Nombre:</label>
+        {{ editar_form.first_name }}
+        <br>
+        
+        <label for="{{ editar_form.last_name.id_for_label }}">Apellido:</label>
+        {{ editar_form.last_name }}
+        <br>
+        
+        <label for="{{ editar_form.email.id_for_label }}">Correo electrónico:</label>
+        {{ editar_form.email }}
+        <br>
+        
+        <label for="{{ editar_form.telefono.id_for_label }}">Teléfono:</label>
+        {{ editar_form.telefono }}
+        <br>
+        
+        <label for="{{ editar_form.imagen.id_for_label }}">Imagen:</label>
+        {{ editar_form.imagen }}
+        <br>
+        
+        <label for="{{ editar_form.password1.id_for_label }}">Contraseña:</label>
+        {{ editar_form.password1 }}
+        <br>
+        
+        <label for="{{ editar_form.password2.id_for_label }}">Confirmar Contraseña:</label>
+        {{ editar_form.password2 }}
+        <br>
+        
+        <button type="submit">Guardar Cambios</button>
+    </form>
+{% endblock contenido %}

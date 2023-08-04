@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<div class="post-container">
+    <form action="" method="get">
+        <select name="categoria" id="">
+            <option value="">Todas</option>
+            {% for categoria in categorias %}
+            <option value="{{categoria.id}}">{{categoria.nombre}}</option>
+            {% endfor %}
+        </select>
+        <select name="orderby" id="">
+            <option value="">Ordenar por</option>
+            <option value="fecha_asc">Fecha ascendente</option>
+            <option value="fecha_desc">Fecha descendente</option>
+            <option value="alf_asc">Alfabeticamente ascendente</option>
+            <option value="alf_desc">Alfabeticamente descendente</option>
+        </select>
+        <button type="submit">Filtrar</button>
+    </form>
+    <h1>Noticias</h1>
+    
+    {% for post in posts %}
+        <div class="card m-3 mb-5">
+            <div class="card-body">
+                <h4 class="card-title">{{ post.titulo }}</h4>
+                <p class="card-text">{{ post.subtitulo }}</p>
+            </div>
+            
+            {% if post.imagen.url != '' %}                
+                <img class="imagen-proporcional" src="{{ post.imagen.url }}" alt="Card image cap">
+            {% else %}
+                <img class="imagen-proporcional" src="{% static 'img/post_default.jpg' %}" alt="Card image cap">
+            {% endif %}
+            
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{ post.categoria }}</li>
+                <li class="list-group-item">{{ post.texto }}</li>
+                <li class="list-group-item">{{ post.publicado }}</li>
+            </ul>
+            <div class="botonera1">
+                <a href="{% url 'apps.posts:post_individual' post.id %}" class="btn btn-primary m-1">Ver Detalle</a>
+                
+                {% if user.is_authenticated and user.es_colaborador or user == post.creador or user.is_superuser %}
+                    <a href="{% url 'apps.posts:editar-post' post.id %}" class="btn btn-primary m-1">Editar</a>
+                    <a href="{% url 'apps.posts:eliminar-post' post.id %}" class="btn btn-danger m-1">Eliminar</a>
+                {% endif %}
+                
+               
+            </div>
+        </div>
+
+
+        {% empty %}
+            <h3>No hay noticias</h3>
+    {% endfor %}
+
+    
+    {% if user.is_authenticated or user.es_colaborador or user.is_superuser %}
+        <a href="{% url 'apps.posts:postear' %}" class="btn btn-primary m-3">Publicar una nueva noticia!!!</a>
+    {% endif %}
+        
+{% endblock contenido %}
