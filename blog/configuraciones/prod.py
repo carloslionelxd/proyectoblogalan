@@ -28,4 +28,4 @@ ALLOWED_HOSTS = ['carloslionel56.pythonanywhere.com']
 
 # SOLO SE DEFINE CUANDO DEBUG = False
 if not DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
